@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutterprac/pages/home.dart';
+import 'package:flutterprac/pages/CityCircleFrontPage.dart';
+import 'package:flutterprac/pages/practicePage.dart';
 
+
+final ThemeData myTheme = ThemeData(
+  primaryColor: Color(0xFF19747E),
+  fontFamily: "Urbanist",
+
+  // Add more theme configurations as needed
+);
 void main() {
   runApp(const MyApp());
 }
@@ -13,8 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: "Urbanist"),
-      home: const HomePage()
+      theme: myTheme,
+      home: const practicePage(),
     );
   }
 }

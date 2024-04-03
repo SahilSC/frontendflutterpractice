@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutterprac/pages/FindYourCircle.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class FindYourCircle extends StatelessWidget {
+  const FindYourCircle({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: buildAppBar(),
+        appBar: buildAppBar(context),
         backgroundColor: Colors.white,
         body: Column(
           children: [
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
                 width: 20,
               ),
             ),
-            Text(
+            const Text(
               "Where Are You Located?",
               style: TextStyle(fontSize: 30),
             ),
@@ -93,7 +94,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  AppBar buildAppBar() {
+  AppBar buildAppBar(BuildContext context) {
     return AppBar(
       title: const Text(
         'City Circle',
@@ -108,6 +109,7 @@ class HomePage extends StatelessWidget {
       leading: GestureDetector(
         onTap: () {
           print("Tapped on Back Arrow");
+          Navigator.of(context).pop();
         },
         child: Container(
           margin: EdgeInsets.all(10),
@@ -126,6 +128,7 @@ class HomePage extends StatelessWidget {
         GestureDetector(
           onTap: () {
             print("Tapped on Front Arrow");
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const FindYourCircle()));
           },
           child: Container(
             margin: EdgeInsets.all(10),
